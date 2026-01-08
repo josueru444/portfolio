@@ -1,34 +1,33 @@
 import React from 'react';
+import RevealOnScroll from './RevealOnScroll';
 
 const About = ({ personalInfo }) => {
     return (
-        <section id="about" className="py-24 px-6 relative z-10">
-            <div className="max-w-5xl mx-auto">
-                <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 relative overflow-hidden group hover:border-purple-500/30 transition-colors duration-500">
-                    {/* Glow effect inside card */}
-                    <div className="absolute -right-20 -top-20 w-64 h-64 bg-purple-600/20 rounded-full blur-[80px] group-hover:bg-purple-600/30 transition-all"></div>
+        <section id="about" className="py-32 px-6 relative z-10">
+            <div className="max-w-4xl mx-auto">
+                <RevealOnScroll>
+                    {/* Bento Grid Styling: Solid, High Contrast, Soft Corners */}
+                    <div className="bg-zinc-900 border border-zinc-800 rounded-[3rem] p-10 md:p-16 relative overflow-hidden text-center md:text-left">
 
-                    <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
-                        <div className="space-y-6">
-                            <h2 className="text-3xl font-bold flex items-center gap-3">
-                                <span className="text-fuchsia-500">01.</span> Sobre Mí
-                            </h2>
-                            <p className="text-lg text-slate-300 leading-relaxed">
+                        <div className="relative z-10 space-y-10">
+                            <div className="space-y-4 border-l-4 border-accent pl-6 inline-block md:block">
+                                <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase">
+                                    <span className="text-accent text-3xl align-top mr-2">01.</span>
+                                    Sobre Mí
+                                </h2>
+                            </div>
+
+                            <p className="text-xl text-zinc-300 leading-loose font-light tracking-wide text-justify">
                                 {personalInfo.description}
                             </p>
-
                         </div>
 
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-purple-600 rounded-2xl transform rotate-3 blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
-                            <img
-                                src="https://placehold.co/400x400/0f172a/8b5cf6?text=Profile"
-                                alt="Profile"
-                                className="relative rounded-2xl w-full border border-white/10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
-                            />
+                        {/* Decorative element: Big faded number */}
+                        <div className="absolute -bottom-20 -right-20 text-[20rem] font-black text-white/5 pointer-events-none select-none hidden md:block">
+                            01
                         </div>
                     </div>
-                </div>
+                </RevealOnScroll>
             </div>
         </section>
     );

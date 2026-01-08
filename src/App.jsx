@@ -1,10 +1,10 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { personalInfo, skills, projects } from './data/portfolioData';
-import BackgroundEffects from './components/BackgroundEffects';
 import Navbar from './components/Navbar';
 import LoadingSpinner from './components/LoadingSpinner';
+import BackgroundEffects from './components/BackgroundEffects';
+import { personalInfo, heroData, skills, projects } from './data/portfolioData';
 
-// Lazy load components
+// Lazy load components for performance
 const Hero = lazy(() => import('./components/Hero'));
 const About = lazy(() => import('./components/About'));
 const Skills = lazy(() => import('./components/Skills'));
@@ -13,39 +13,43 @@ const Experience = lazy(() => import('./components/Experience'));
 const Contact = lazy(() => import('./components/Contact'));
 const Footer = lazy(() => import('./components/Footer'));
 
-const Portfolio = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+import CVModal from './components/CVModal';
+
+import CustomCursor from './components/CustomCursor';
+
+function App() {
+  const [loading, setLoading] = useState(true);
   const [scrolled, setScrolled] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [activeSection, setActiveSection] = useState('home');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCVModalOpen, setIsCVModalOpen] = useState(false);
 
-  // Efecto para detectar scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500);
 
-      // Added 'skills' to the sections array to ensure smooth scrolling and highlighting working correctly
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      // Simple spy scroll logic
       const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
-      const current = sections.find(section => {
+      for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top >= -100 && rect.top <= 300;
+          if (rect.top >= 0 && rect.top <= 300) {
+            setActiveSection(section);
+          }
         }
-        return false;
-      });
-      if (current) setActiveSection(current);
-    };
-
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
     return () => {
+      clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
@@ -58,7 +62,14 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#030014] text-white font-sans selection:bg-fuchsia-500 selection:text-white overflow-x-hidden relative">
+    <div className="min-h-screen relative bg-primary text-white font-sans selection:bg-accent selection:text-white">
+      <CustomCursor />
+
+      {/* Loading Overlay */}
+      <div className={`fixed inset-0 z-[100] bg-zinc-950 transition-opacity duration-700 pointer-events-none ${loading ? 'opacity-100' : 'opacity-0'}`}>
+        {loading && <LoadingSpinner />}
+      </div>
+
       <BackgroundEffects />
 
       <Navbar
@@ -69,18 +80,24 @@ const Portfolio = () => {
         setIsMenuOpen={setIsMenuOpen}
       />
 
-      <Suspense fallback={<LoadingSpinner />}>
-        <Hero personalInfo={personalInfo} scrollTo={scrollTo} />
-        <About personalInfo={personalInfo} />
-        <Projects projects={projects} />
-        <Skills skills={skills} />
-        <Experience />
-        <Contact personalInfo={personalInfo} />
-        <Footer personalInfo={personalInfo} />
-      </Suspense>
+      <main className="relative z-10 flex flex-col gap-0">
+        <Suspense fallback={<div className="h-screen bg-transparent"></div>}>
+          <Hero heroData={heroData} scrollTo={scrollTo} openCV={() => setIsCVModalOpen(true)} />
+          <div id="home" className="h-20"></div> {/* Spacer for home anchor if Hero is hidden */}
 
+          <About personalInfo={personalInfo} />
+          <Projects projects={projects} />
+          <Skills skills={skills} />
+          <Experience />
+          <Contact personalInfo={personalInfo} />
+        </Suspense>
+      </main>
+
+      <Footer personalInfo={personalInfo} />
+
+      <CVModal isOpen={isCVModalOpen} onClose={() => setIsCVModalOpen(false)} />
     </div>
   );
-};
+}
 
-export default Portfolio;
+export default App;

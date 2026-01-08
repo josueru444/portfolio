@@ -1,11 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
-      animation: {
-        'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
-        'gradient-x': 'gradientX 15s ease infinite',
+      colors: {
+        primary: "#0f0f0f",    // Ink Black
+        secondary: "#f5f5f5",  // Paper White
+        accent: "#dc2626",     // Crimson Red
+        surface: "#18181b",    // Zinc-900 equivalent for cards
+      },
+      fontFamily: {
+        sans: ['Outfit', 'sans-serif'],
+        jp: ['"Noto Sans JP"', 'sans-serif'],
       },
       keyframes: {
         fadeInUp: {
@@ -17,7 +26,13 @@ module.exports = {
           '50%': { 'background-position': '100% 50%' },
         },
       },
+      animation: {
+        'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+        'gradient-x': 'gradientX 15s ease infinite',
+      },
     },
   },
-  plugins: [],
-};
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
+}

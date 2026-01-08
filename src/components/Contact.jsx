@@ -1,31 +1,31 @@
 import React from 'react';
-import { Mail, Sparkles } from 'lucide-react';
+import { Mail, ArrowRight } from 'lucide-react';
+import RevealOnScroll from './RevealOnScroll';
 
 const Contact = ({ personalInfo }) => {
     return (
-        <section id="contact" className="py-32 px-6 relative z-10">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-900/20 pointer-events-none"></div>
+        <section id="contact" className="py-32 px-6 relative z-10 border-t border-zinc-900/50">
+            <div className="max-w-4xl mx-auto text-center">
+                <RevealOnScroll>
+                    {/* Simple Header */}
+                    <h2 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter">
+                        ¿Tienes una <span className="text-zinc-600">idea?</span>
+                    </h2>
 
-            <div className="max-w-4xl mx-auto text-center relative">
-                <div className="inline-block p-4 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 backdrop-blur-md border border-white/10 mb-8">
-                    <Sparkles className="text-white animate-pulse" size={32} />
-                </div>
+                    <p className="text-xl text-zinc-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                        Estoy listo para colaborar. Escríbeme y hagamos algo increíble.
+                    </p>
 
-                <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight">
-                    ¿Tienes una <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-600">idea?</span>
-                </h2>
-
-                <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
-                    Estoy listo para llevar tu próximo proyecto al siguiente nivel. Colaboremos y creemos algo extraordinario.
-                </p>
-
-                <a
-                    href={`mailto:${personalInfo.email}`}
-                    className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-bold rounded-full hover:bg-cyan-50 transition-all hover:scale-105 shadow-[0_0_50px_rgba(255,255,255,0.2)] text-lg"
-                >
-                    <Mail size={22} />
-                    Hablemos Ahora
-                </a>
+                    {/* Button: White default, Red hover */}
+                    <a
+                        href={`mailto:${personalInfo.email}`}
+                        className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-bold rounded-full transition-all duration-300 hover:bg-accent hover:text-white shadow-lg hover:shadow-accent/25"
+                    >
+                        <Mail size={20} />
+                        Contáctame
+                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    </a>
+                </RevealOnScroll>
             </div>
         </section>
     );

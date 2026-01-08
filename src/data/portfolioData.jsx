@@ -7,10 +7,10 @@ import {
 import React from 'react';
 
 export const personalInfo = {
-    name: "Josue Ruiz",
+    name: "Josué Ruíz",
     role: "Ingeniero en Sistemas Computacionales",
     tagline: "Arquitecto de software especializado en construir soluciones escalables y de alto rendimiento.",
-    description: "Estudiante de Ingeniería en Sistemas enfocado en el desarrollo web y backend. Cuento con experiencia en PHP (Laravel), Java, Python y MySQL, además de conocimientos en APIs REST. Actualmente estoy ampliando mis habilidades en Spring y ciberseguridad, motivado por el aprendizaje continuo y las buenas prácticas de desarrollo.",
+    description: "Próximo Ingeniero en Sistemas Computacionales enfocado en el desarrollo web y backend. Cuento con experiencia en PHP (Laravel), Java, Python y MySQL, además de conocimientos en APIs REST. Actualmente estoy ampliando mis habilidades en Spring y ciberseguridad, motivado por el aprendizaje continuo y las buenas prácticas de desarrollo.",
     email: "josueru444@gmail.com",
     phone: "715-164-7702",
     linkedin: "https://linkedin.com/in/josue-ruiz",
@@ -19,12 +19,12 @@ export const personalInfo = {
 };
 
 export const heroData = {
-    badge: "Disponible para trabajar",
-    titlePrefix: "Transformando Ideas en",
-    titleSuffix: "Experiencias Digitales",
-    description: "Ingeniero en Sistemas Computacionales",
-    primaryBtn: "Ver Mis Trabajos",
-    secondaryBtn: "CV / Resume"
+    badge: "Disponible para Proyectos",
+    titlePrefix: "Ingeniero en",
+    titleSuffix: "Sistemas Computacionales",
+    description: "Desarrollador Full Stack con experiencia en arquitecturas escalables, construcción de APIs robustas y desarrollo de software a medida.",
+    primaryBtn: "Ver Portafolio",
+    secondaryBtn: "Descargar CV"
 };
 
 export const skills = [
@@ -60,7 +60,6 @@ export const skills = [
         items: [
             { name: "Java", icon: "openjdk", color: "FFFFFF" },
             { name: "Kotlin", icon: "kotlin", color: "7F52FF" },
-            { name: "Rust", icon: "rust", color: "000000" },
             { name: "TypeScript", icon: "typescript", color: "3178C6" },
             { name: "Git", icon: "git", color: "F05032" },
             { name: "Docker", icon: "docker", color: "2496ED" }
