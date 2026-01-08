@@ -38,13 +38,13 @@ const CVModal = ({ isOpen, onClose }) => {
                 {/* Body (PDF Preview) */}
                 <div className="flex-1 bg-zinc-950 relative">
                     <iframe
-                        src="/Josue_Ruiz_CV.pdf"
+                        src="cv.pdf"
                         className="w-full h-full"
                         title="CV Preview"
                     >
                         <div className="flex flex-col items-center justify-center h-full text-zinc-500">
                             <p>Tu navegador no soporta la visualización de PDFs.</p>
-                            <a href="/Josue_Ruiz_CV.pdf" download className="text-accent hover:underline mt-2">Descargar archivo directamente</a>
+                            <a href="cv.pdf" download className="text-accent hover:underline mt-2">Descargar archivo directamente</a>
                         </div>
                     </iframe>
                 </div>
@@ -58,7 +58,7 @@ const CVModal = ({ isOpen, onClose }) => {
                         Cerrar
                     </button>
                     <a
-                        href="/Josue_Ruiz_CV.pdf"
+                        href="cv.pdf"
                         download="Josue_Ruiz_CV.pdf"
                         className="inline-flex items-center gap-2 px-8 py-3 bg-accent text-white font-bold rounded-full hover:bg-red-700 transition-colors shadow-lg shadow-accent/20"
                     >
