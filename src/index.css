@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@config "../tailwind.config.cjs";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #030014;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 1s linear infinite;
+}
