@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import LoadingSpinner from './components/LoadingSpinner';
 import BackgroundEffects from './components/BackgroundEffects';
@@ -96,6 +97,8 @@ function App() {
       <Footer personalInfo={personalInfo} />
 
       <CVModal isOpen={isCVModalOpen} onClose={() => setIsCVModalOpen(false)} />
+
+      <Analytics />
     </div>
   );
 }
