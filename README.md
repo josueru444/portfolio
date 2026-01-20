@@ -6,7 +6,7 @@
 
 Este es el repositorio oficial de mi portafolio profesional. Un sitio web moderno, diseñado con un estilo "Soft Solid" y estéticas minimalistas para mostrar mi experiencia, habilidades y proyectos. construido con tecnologías web de vanguardia.
 
-**Live Demo:** [josueru444.github.io/portfolio](https://josueru444.github.io/portfolio/)
+**Live Demo:** [josue-ruiz-r.vercel.app](https://josue-ruiz-r.vercel.app)
 
 ---
 
