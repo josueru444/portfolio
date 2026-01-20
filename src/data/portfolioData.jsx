@@ -8,9 +8,9 @@ import React from 'react';
 
 export const personalInfo = {
     name: "Josué Ruíz",
-    role: "Ingeniero en Sistemas Computacionales",
+    role: "Desarrollador Full Stack",
     tagline: "Arquitecto de software especializado en construir soluciones escalables y de alto rendimiento.",
-    description: "Próximo Ingeniero en Sistemas Computacionales enfocado en el desarrollo web y backend. Cuento con experiencia en PHP (Laravel), Java, Python y MySQL, además de conocimientos en APIs REST. Actualmente estoy ampliando mis habilidades en Spring y ciberseguridad, motivado por el aprendizaje continuo y las buenas prácticas de desarrollo.",
+    description: "Egresado de Ingeniería en Sistemas Computacionales enfocado en el desarrollo web y backend. Cuento con experiencia en PHP (Laravel), Java, Python y MySQL, además de conocimientos en APIs REST. Actualmente estoy ampliando mis habilidades en Spring y ciberseguridad, motivado por el aprendizaje continuo y las buenas prácticas de desarrollo.",
     email: "josueru444@gmail.com",
     phone: "715-164-7702",
     linkedin: "https://linkedin.com/in/josue-ruiz",
@@ -20,8 +20,8 @@ export const personalInfo = {
 
 export const heroData = {
     badge: "Disponible para Proyectos",
-    titlePrefix: "Ingeniero en",
-    titleSuffix: "Sistemas Computacionales",
+    titlePrefix: "Desarrollador",
+    titleSuffix: "Full Stack",
     description: "Desarrollador Full Stack con experiencia en arquitecturas escalables, construcción de APIs robustas y desarrollo de software a medida.",
     primaryBtn: "Ver Portafolio",
     secondaryBtn: "Descargar CV"
@@ -45,11 +45,12 @@ export const skills = [
         icon: <Terminal size={24} />,
         items: [
             { name: "Laravel", icon: "laravel", color: "FF2D20" },
+            { name: "Livewire", icon: "livewire", color: "FB70A9" },
             { name: "PHP", icon: "php", color: "777BB4" },
             { name: "Django", icon: "django", color: "092E20" },
             { name: "Python", icon: "python", color: "3776AB" },
             { name: "Node.js", icon: "nodedotjs", color: "339933" },
-            { name: "PostgreSQL", icon: "postgresql", color: "4169E1" },
+            //{ name: "PostgreSQL", icon: "postgresql", color: "4169E1" },
             { name: "MySQL", icon: "mysql", color: "4479A1" },
             { name: "MongoDB", icon: "mongodb", color: "47A248" }
         ]
@@ -104,7 +105,7 @@ export const projects = [
     },
     {
         title: "Tienda en Línea",
-        desc: "Proyecto escolar de comercio electrónico con arquitectura MVC. Autenticación con Google Sign-In y Facebook. Se integraron pagos con Paypal. Se implementó el uso de mapas con Google Maps API para mostrar la ubicación de las tiendas físicas.",
+        desc: "Mi primer proyecto escolar utilizando Laravel. Desarrollé una aplicación de comercio electrónico (MVC) con autenticación social (Google/Facebook), pagos vía PayPal y geolocalización de tiendas mediante Google Maps API.",
         tags: ["Laravel", "Paypal", "Google Maps API", "MySQL", "Google Sign-In", "Facebook"],
         link: "#",
         repo: "#",
