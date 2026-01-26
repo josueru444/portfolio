@@ -82,7 +82,7 @@ export const projects = [
     ],
     link: "https://oasissurfschoolpuertoescondido.com/",
     repo: "#",
-    showLink: false,
+    showLink: true,
     showRepo: false,
     image: "",
     isSchoolProject: false,
