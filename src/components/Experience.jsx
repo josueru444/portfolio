@@ -11,7 +11,7 @@ const Experience = () => {
                     <div className="mb-24 border-b border-zinc-800 pb-10">
                         <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter uppercase">
                             <span className="text-accent text-4xl align-top mr-4">04.</span>
-                            Trayectoria
+                            Experiencia
                             <span className="text-accent text-6xl">.</span>
                         </h2>
                     </div>
