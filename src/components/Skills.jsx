@@ -13,7 +13,7 @@ const Skills = ({ skills }) => {
                             Habilidades Técnicas
                             <span className="text-accent text-6xl">.</span>
                         </h2>
-                        <p className="text-zinc-500 text-xl font-light max-w-2xl">
+                        <p className="text-zinc-400 text-xl font-light max-w-2xl">
                             Todas las herramientas que he utilizado para desarrollar mis proyectos.
                         </p>
                     </div>
@@ -40,6 +40,8 @@ const Skills = ({ skills }) => {
                                                 <img
                                                     src={`https://cdn.simpleicons.org/${skill.icon}/${skill.color}`}
                                                     alt={skill.name}
+                                                    loading="lazy"
+                                                    aria-hidden="true"
                                                     className="w-4 h-4 object-contain"
                                                 />
                                             </div>

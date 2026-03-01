@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import BackgroundEffects from '../components/BackgroundEffects';
+import Hero from '../components/Hero';
+import About from '../components/About';
+import Skills from '../components/Skills';
+import Projects from '../components/Projects';
+import Experience from '../components/Experience';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
+import CVModal from '../components/CVModal';
+import CustomCursor from '../components/CustomCursor';
+
+import { personalInfo, heroData, skills, projects } from '../data/portfolioData';
+---
+
+<Layout title="Josué Ruíz | Desarrollador Full Stack">
+  <!-- Interactive components that need JavaScript loaded immediately -->
+  <CustomCursor client:load />
+  <BackgroundEffects client:idle />
+  
+  <Navbar 
+    client:load 
+    scrolled={false} 
+    activeSection="home" 
+    isMenuOpen={false} 
+  />
+
+  <main class="relative z-10 flex flex-col gap-0">
+    <Hero heroData={heroData} client:load />
+    <div id="home" class="h-20"></div>
+
+    <!-- Interactive components (Require JS for RevealOnScroll and form handling) -->
+    <About personalInfo={personalInfo} client:visible />
+    
+    <!-- Interactive component that opens a modal -->
+    <Projects projects={projects} client:visible />
+    
+    <Skills skills={skills} client:visible />
+    <Experience client:visible />
+    <Contact personalInfo={personalInfo} client:visible />
+  </main>
+
+  <Footer personalInfo={personalInfo} />
+
+  <!-- Hidden modal, will hydrate when needed -->
+  <CVModal client:load />
+</Layout>

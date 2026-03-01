@@ -1,7 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sparkles, Menu, X } from 'lucide-react';
 
-const Navbar = ({ scrolled, activeSection, scrollTo, isMenuOpen, setIsMenuOpen }) => {
+const Navbar = () => {
+    const [scrolled, setScrolled] = useState(false);
+    const [activeSection, setActiveSection] = useState('home');
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+
+            const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top >= 0 && rect.top <= 300) {
+                        setActiveSection(section);
+                    }
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollTo = (id) => {
+        setIsMenuOpen(false);
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-primary border-b border-zinc-800' : 'bg-transparent'}`}>
             <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">

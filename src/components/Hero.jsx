@@ -1,7 +1,19 @@
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
 
-const Hero = ({ heroData, scrollTo, openCV }) => {
+const Hero = ({ heroData }) => {
+
+    const scrollToProjects = () => {
+        const element = document.getElementById('projects');
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const openCV = () => {
+        window.dispatchEvent(new CustomEvent('open-cv-modal'));
+    };
+
     return (
         <section id="home" className="min-h-screen relative flex items-center justify-center overflow-hidden pt-20">
             {/* Note: Global BackgroundEffects handles the background/grid now */}
@@ -24,12 +36,12 @@ const Hero = ({ heroData, scrollTo, openCV }) => {
                         <p className="text-xl md:text-2xl text-zinc-400 font-light max-w-2xl mb-12 leading-relaxed">
                             {heroData.titlePrefix} <span className="text-white font-bold">{heroData.titleSuffix}</span>.
                             <br />
-                            <span className="text-lg text-zinc-500 mt-2 block">{heroData.description}</span>
+                            <span className="text-lg text-zinc-400 mt-2 block">{heroData.description}</span>
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-6 justify-center md:justify-start">
                             <button
-                                onClick={() => scrollTo('projects')}
+                                onClick={scrollToProjects}
                                 className="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-accent hover:text-white transition-all shadow-[0_0_0_4px_rgba(255,255,255,0.1)] hover:shadow-[0_0_0_8px_rgba(220,38,38,0.2)] text-lg"
                             >
                                 {heroData.primaryBtn}
@@ -44,7 +56,7 @@ const Hero = ({ heroData, scrollTo, openCV }) => {
                     </div>
 
                     {/* Decorative TECH Element (Replaced Japanese) */}
-                    <div className="hidden md:flex flex-col items-center justify-center space-y-8 opacity-40">
+                    <div className="hidden md:flex flex-col items-center justify-center space-y-8 opacity-40" aria-hidden="true">
                         <div className="w-px h-32 bg-gradient-to-b from-transparent to-zinc-500"></div>
                         <span className="writing-vertical-rl text-accent font-mono tracking-[0.4em] text-xs font-bold uppercase rotate-180 animate-pulse-slow drop-shadow-[0_0_8px_rgba(220,38,38,0.5)]">
                             SYSTEMS ENGINEER
@@ -56,7 +68,7 @@ const Hero = ({ heroData, scrollTo, openCV }) => {
 
             {/* Scroll Indicator */}
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-                <ArrowDown className="text-zinc-500" size={24} />
+                <ArrowDown className="text-zinc-400" size={24} />
             </div>
         </section>
     );
