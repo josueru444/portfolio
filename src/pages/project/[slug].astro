@@ -1,0 +1,140 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { ArrowLeft } from "lucide-react";
+import { projects } from "../../data/portfolioData";
+import CustomCursor from "../../components/CustomCursor";
+
+export function getStaticPaths() {
+    return projects
+        .filter((project) => project.hasDetails)
+        .map((project) => ({
+            params: { slug: project.slug },
+            props: { project },
+        }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.title} | Josué Ruíz`}>
+    <!-- Interactive components that need JavaScript loaded immediately -->
+    <CustomCursor client:load />
+    <main class="min-h-screen pt-32 pb-20 px-6 relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <a
+                href={`${import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL}/#projects`}
+                class="inline-flex items-center gap-2 text-zinc-400 hover:text-white mb-12 transition-colors group px-4 py-2 border border-zinc-800 rounded-full hover:bg-zinc-900"
+            >
+                <ArrowLeft
+                    size={20}
+                    className="group-hover:-translate-x-1 transition-transform"
+                />
+                Volver al Portafolio
+            </a>
+
+            <header class="mb-16 border-b border-zinc-800 pb-10">
+                <div class="flex flex-wrap gap-2 mb-6">
+                    {
+                        project.tags.map((tag) => (
+                            <span class="px-3 py-1 bg-zinc-950 border border-zinc-800 rounded-full text-zinc-400 text-xs font-bold uppercase tracking-wider">
+                                {tag}
+                            </span>
+                        ))
+                    }
+                </div>
+                <h1
+                    class="text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-6"
+                >
+                    {project.title}
+                </h1>
+                <p class="text-xl text-zinc-400 font-light leading-relaxed">
+                    {project.desc}
+                </p>
+            </header>
+
+            <article
+                class="prose prose-invert prose-lg max-w-none prose-p:text-zinc-300 prose-headings:text-white prose-a:text-accent hover:prose-a:text-red-400 prose-img:rounded-2xl prose-img:border prose-img:border-zinc-800 space-y-8"
+            >
+                {
+                    project.details &&
+                        project.details.map((section) => {
+                            if (section.type === "title") {
+                                return (
+                                    <h2 class="text-3xl font-bold mt-12 mb-6 uppercase tracking-wide">
+                                        {section.content}
+                                    </h2>
+                                );
+                            }
+                            if (section.type === "paragraph") {
+                                return (
+                                    <p class="leading-relaxed font-light">
+                                        {section.content}
+                                    </p>
+                                );
+                            }
+                            if (section.type === "image") {
+                                return (
+                                    <div class="my-10">
+                                        <img
+                                            src={section.src}
+                                            alt={section.alt || project.title}
+                                            class="w-full h-auto rounded-3xl object-cover shadow-2xl"
+                                            loading="lazy"
+                                        />
+                                        {section.alt && (
+                                            <p class="text-center text-sm text-zinc-500 mt-4 italic">
+                                                {section.alt}
+                                            </p>
+                                        )}
+                                    </div>
+                                );
+                            }
+                            if (section.type === "list") {
+                                return (
+                                    <ul class="list-disc pl-6 space-y-3 marker:text-accent bg-zinc-900/50 p-8 rounded-3xl border border-zinc-800">
+                                        {section.items &&
+                                            section.items.map((item) => (
+                                                <li class="text-zinc-300 font-light">
+                                                    {item}
+                                                </li>
+                                            ))}
+                                    </ul>
+                                );
+                            }
+                            return null;
+                        })
+                }
+            </article>
+
+            {/* Footer Links for the Project */}
+            <div
+                class="mt-20 pt-10 border-t border-zinc-800 flex flex-col sm:flex-row gap-6"
+            >
+                {
+                    project.showLink && project.link && (
+                        <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex-1 text-center py-4 bg-accent text-white font-bold rounded-full hover:bg-red-700 transition-colors shadow-lg shadow-accent/20"
+                        >
+                            Ver Proyecto en Vivo
+                        </a>
+                    )
+                }
+                {
+                    project.showRepo && project.repo && (
+                        <a
+                            href={project.repo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex-1 text-center py-4 bg-zinc-900 text-white font-bold rounded-full border border-zinc-800 hover:bg-white hover:text-black transition-colors"
+                        >
+                            Ver Código Fuente
+                        </a>
+                    )
+                }
+            </div>
+        </div>
+    </main>
+</Layout>

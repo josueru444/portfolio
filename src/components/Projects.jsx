@@ -87,7 +87,7 @@ const Projects = ({ projects }) => {
                                     {/* Overlay Icons - Visual hint only now */}
                                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                         <span className="px-6 py-3 bg-white text-black rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                            Ver Detalles
+                                            Explorar 
                                         </span>
                                     </div>
                                 </div>
@@ -181,16 +181,14 @@ const Projects = ({ projects }) => {
                                         </div>
                                     </div>
 
-                                    <div className="flex gap-4 pt-6 mt-auto border-t border-zinc-800">
-                                        {selectedProject.showRepo && selectedProject.repo && (
+                                    {/* Action Buttons */}
+                                    <div className="flex flex-col gap-3 pt-6 mt-auto border-t border-zinc-800">
+                                        {selectedProject.hasDetails && (
                                             <a
-                                                href={selectedProject.repo}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex-1 inline-flex justify-center items-center gap-2 px-6 py-3 bg-zinc-950 text-white font-bold rounded-full hover:bg-white hover:text-black transition-all border border-zinc-800"
+                                                href={`${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}/project/${selectedProject.slug}`}
+                                                className="w-full inline-flex justify-center items-center gap-2 px-6 py-3 bg-accent text-white font-bold rounded-full hover:bg-red-500 transition-all shadow-lg shadow-accent/20"
                                             >
-                                                <Github size={20} />
-                                                GitHub
+                                                Ver Detalles Completos
                                             </a>
                                         )}
                                         {selectedProject.showLink && selectedProject.link && (
@@ -198,10 +196,24 @@ const Projects = ({ projects }) => {
                                                 href={selectedProject.link}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex-1 inline-flex justify-center items-center gap-2 px-6 py-3 bg-accent text-white font-bold rounded-full hover:bg-white hover:text-black transition-all shadow-lg shadow-accent/20"
+                                                className={`w-full inline-flex justify-center items-center gap-2 px-6 py-3 font-bold rounded-full transition-all ${selectedProject.hasDetails
+                                                        ? "bg-zinc-900/50 text-zinc-300 hover:text-white hover:bg-zinc-800 border border-zinc-800"
+                                                        : "bg-accent text-white hover:bg-red-500 shadow-lg shadow-accent/20"
+                                                    }`}
                                             >
                                                 <ExternalLink size={20} />
                                                 Ver Proyecto (en producción)
+                                            </a>
+                                        )}
+                                        {selectedProject.showRepo && selectedProject.repo && (
+                                            <a
+                                                href={selectedProject.repo}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-full inline-flex justify-center items-center gap-2 px-6 py-3 bg-transparent text-zinc-400 font-bold rounded-full hover:text-white hover:bg-zinc-900 transition-all border border-zinc-800"
+                                            >
+                                                <Github size={20} />
+                                                GitHub
                                             </a>
                                         )}
                                     </div>
