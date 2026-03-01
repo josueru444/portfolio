@@ -18,7 +18,7 @@ Este proyecto está construido con un stack moderno enfocado en rendimiento y di
 -   **Estilos:** [Tailwind CSS v4](https://tailwindcss.com/)
 -   **Iconos:** [Lucide React](https://lucide.dev/)
 -   **Animaciones:** CSS nativo (Keyframes) + Intersection Observer API
--   **Despliegue:** GitHub Pages / Vercel
+-   **Despliegue:** Vercel
 
 ##  Características
 
@@ -52,17 +52,9 @@ Si deseas clonar y correr este proyecto en tu máquina local:
 
 ##  Despliegue
 
-### GitHub Pages
-
-El proyecto está configurado para desplegarse automáticamente en GitHub Pages usando `gh-pages`.
-
-```bash
-npm run deploy
-```
-
 ### Vercel
 
-Configurado con `vercel.json` para soportar rutas SPA. Simplemente conecta el repositorio a Vercel y detectará la configuración de Vite automáticamente.
+Configurado con `vercel.json` para soportar rutas SPA. Simplemente conecta el repositorio a Vercel y detectará la configuración de Vite/Astro automáticamente.
 
 ---
 
@@ -76,4 +68,4 @@ Configurado con `vercel.json` para soportar rutas SPA. Simplemente conecta el re
 
 ---
 
-Developed with  by Josué Ruíz.
+Desarrollado por Josué Ruíz.

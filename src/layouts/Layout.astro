@@ -1,7 +1,7 @@
 ---
-import '../index.css';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
+import "../index.css";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 const { title, description } = Astro.props;
 ---
 
@@ -12,37 +12,67 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="canonical" href={Astro.url.href} />
-    
+
     <!-- Primary Meta Tags -->
     <title>{title || "Josué Ruíz | Desarrollador Full Stack | Jos-soft"}</title>
-    <meta name="title" content={title || "Josué Ruíz | Desarrollador Full Stack | Jos-soft"} />
-    <meta name="description" content={description || "Portafolio de Josué Ruíz (Josue Ruiz Dev / Jos-soft), Ingeniero de Software y Desarrollador Full Stack. Especializado en soluciones web escalables con React, Laravel, Python y más."} />
-    <meta name="keywords" content="Josué Ruíz, Josue Ruiz dev, Jos-soft, jos-soft dev, Desarrollador Web, Full Stack, Ingeniero de Software, React, Laravel, Portafolio, Programador" />
+    <meta
+      name="title"
+      content={title || "Josué Ruíz | Desarrollador Full Stack | Jos-soft"}
+    />
+    <meta
+      name="description"
+      content={description ||
+        "Portafolio de Josué Ruíz (Josue Ruiz Dev / Jos-soft), Ingeniero de Software y Desarrollador Full Stack. Especializado en soluciones web escalables con React, Laravel, Python y más."}
+    />
+    <meta
+      name="keywords"
+      content="Josué Ruíz, Josue Ruiz dev, Jos-soft, jos-soft dev, Desarrollador Web, Full Stack, Ingeniero de Software, React, Laravel, Portafolio, Programador"
+    />
     <meta name="author" content="Josué Ruíz" />
     <meta name="theme-color" content="#0f0f0f" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://josueru444.github.io/portfolio/" />
-    <meta property="og:title" content="Josué Ruíz | Jos-soft | Desarrollador Full Stack" />
-    <meta property="og:description" content="Portafolio de Josué Ruíz (Josue Ruiz Dev). Explora mis proyectos en desarrollo web, backend y arquitecturas escalables." />
-    <meta property="og:image" content="https://josueru444.github.io/portfolio/og-image.png" />
+    <meta property="og:url" content="https://josue-ruiz-r.vercel.app/" />
+    <meta
+      property="og:title"
+      content="Josué Ruíz | Jos-soft | Desarrollador Full Stack"
+    />
+    <meta
+      property="og:description"
+      content="Portafolio de Josué Ruíz (Josue Ruiz Dev). Explora mis proyectos en desarrollo web, backend y arquitecturas escalables."
+    />
+    <meta
+      property="og:image"
+      content="https://josue-ruiz-r.vercel.app/og-image.png"
+    />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://josueru444.github.io/portfolio/" />
-    <meta property="twitter:title" content="Josué Ruíz | Jos-soft | Desarrollador Full Stack" />
-    <meta property="twitter:description" content="Portafolio de Josué Ruíz (Josue Ruiz Dev). Explora mis proyectos en desarrollo web, backend y arquitecturas escalables." />
-    <meta property="twitter:image" content="https://josueru444.github.io/portfolio/og-image.png" />
+    <meta property="twitter:url" content="https://josue-ruiz-r.vercel.app/" />
+    <meta
+      property="twitter:title"
+      content="Josué Ruíz | Jos-soft | Desarrollador Full Stack"
+    />
+    <meta
+      property="twitter:description"
+      content="Portafolio de Josué Ruíz (Josue Ruiz Dev). Explora mis proyectos en desarrollo web, backend y arquitecturas escalables."
+    />
+    <meta
+      property="twitter:image"
+      content="https://josue-ruiz-r.vercel.app/og-image.png"
+    />
 
     <!-- Structured Data JSON-LD -->
-    <script type="application/ld+json" set:html={`
+    <script
+      type="application/ld+json"
+      set:html={`
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Josué Ruíz",
         "alternateName": ["Josue Ruiz Dev", "Jos-soft"],
-        "url": "https://josueru444.github.io/portfolio/",
+        "url": "https://josue-ruiz-r.vercel.app/",
         "jobTitle": "Full Stack Developer & Software Engineer",
         "alumniOf": {
           "@type": "CollegeOrUniversity",
@@ -54,9 +84,12 @@ const { title, description } = Astro.props;
         ],
         "knowsAbout": ["React", "Laravel", "Python", "Full Stack Development", "Web Development", "Backend"]
       }
-    `}></script>
+    `}
+    />
   </head>
-  <body class="bg-primary text-white font-sans selection:bg-accent selection:text-white">
+  <body
+    class="bg-primary text-white font-sans selection:bg-accent selection:text-white"
+  >
     <slot />
     <!-- Vercel Analytics -->
     <Analytics client:idle />
