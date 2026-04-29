@@ -1,0 +1,13 @@
+{
+  "title": "Sistema de Gestión de Grupos",
+  "slug": "gestion-grupos-entidad",
+  "desc": "Plataforma full-stack de gestión académica para optimizar la organización escolar. Incluye autenticación segura (SSO) con Azure Entra y generación automática de formularios con OpenAI.",
+  "tags": ["Laravel 11", "Azure Entra", "OpenAI API", "MySQL", "PHPWord"],
+  "link": "#",
+  "repo": "#",
+  "showLink": false,
+  "showRepo": false,
+  "image": "https://magenta-rare-python-472.mypinata.cloud/ipfs/bafkreihall3gpnx2lnuofbsyhegnej5xj2eqg33ef6yagk55ccrdveqhzy",
+  "isSchoolProject": true,
+  "hasDetails": false
+}

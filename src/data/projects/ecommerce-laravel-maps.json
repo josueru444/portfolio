@@ -1,0 +1,47 @@
+{
+  "title": "Tienda en Línea",
+  "slug": "ecommerce-laravel-maps",
+  "desc": "Mi primer proyecto escolar utilizando Laravel. Desarrollé una aplicación de comercio electrónico (MVC) con autenticación social (Google/Facebook), pagos vía PayPal y geolocalización de tiendas mediante Google Maps API.",
+  "tags": [
+    "Laravel",
+    "Paypal",
+    "Google Maps API",
+    "MySQL",
+    "Google Sign-In",
+    "Facebook"
+  ],
+  "link": "#",
+  "repo": "#",
+  "showLink": false,
+  "showRepo": false,
+  "image": "https://magenta-rare-python-472.mypinata.cloud/ipfs/bafybeihyoqmupssemysgif3zhe2vdpuvu4cmn3empqywheacxg6dkgrbsy",
+  "isSchoolProject": true,
+  "hasDetails": true,
+  "details": [
+    {
+      "type": "image",
+      "src": "https://magenta-rare-python-472.mypinata.cloud/ipfs/bafybeihyoqmupssemysgif3zhe2vdpuvu4cmn3empqywheacxg6dkgrbsy",
+      "alt": "Tienda en Línea - Inicio"
+    },
+    { "type": "title", "content": "Visión General del Proyecto" },
+    {
+      "type": "paragraph",
+      "content": "Este sistema de comercio electrónico fue diseñado bajo el patrón MVC utilizando Laravel. El objetivo principal fue construir una plataforma funcional de ventas en línea que integrara características modernas de e-commerce, como un carrito de compras dinámico, gestión segura de pagos y un proceso fluido de inicio de sesión."
+    },
+    { "type": "title", "content": "Características Destacadas" },
+    {
+      "type": "list",
+      "items": [
+        "Autenticación Social Segura: Se implementó Socialite para permitir a los usuarios iniciar sesión rápidamente utilizando sus cuentas de Google o Facebook, mejorando la tasa de registro y la experiencia de usuario.",
+        "Integración de Pagos con PayPal: Sistema de pasarela de pagos completamente funcional en entorno sandbox, asegurando el procesamiento correcto de los carritos de compra y generando recibos de transacción.",
+        "Geolocalización con Google Maps API: Para la entrega o recogida de productos, se integró un mapa interactivo que permite a los usuarios buscar y ubicar tiendas físicas o puntos de distribución cercanos de manera intuitiva.",
+        "Panel Administrativo: Creación de un backoffice para la gestión del catálogo de productos, control de inventario y supervisión de pedidos completados."
+      ]
+    },
+    { "type": "title", "content": "Impacto y Aprendizaje" },
+    {
+      "type": "paragraph",
+      "content": "Como proyecto introductorio a Laravel, esta plataforma sentó las bases sólidas sobre el manejo de base de datos relacionales, el uso de migraciones, controladores, y la orquestación segura de APIs de terceros (PayPal y Google). Demuestra una capacidad inicial fuerte para conceptualizar y desplegar sistemas transaccionales desde cero."
+    }
+  ]
+}

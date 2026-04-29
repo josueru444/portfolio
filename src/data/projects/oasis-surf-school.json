@@ -1,0 +1,57 @@
+{
+  "title": "Sistema de Gestión para Escuela de Deportes e Idiomas",
+  "slug": "oasis-surf-school",
+  "desc": "Plataforma digital integral para la Escuela OASIS (Backoffice Web y App Móvil). Optimiza la gestión de clientes, reservas, pagos con Stripe, inventario y staff. Incluye firma digital de responsivas y prevención de conflictos de horario.",
+  "tags": [
+    "Laravel",
+    "React",
+    "DOMPDF",
+    "MySQL",
+    "Typescript",
+    "Orion",
+    "Stripe"
+  ],
+  "link": "https://oasissurfschoolpuertoescondido.com/",
+  "repo": "#",
+  "showLink": true,
+  "showRepo": false,
+  "image": "https://static.wixstatic.com/media/e8476f_66eed023f0b44694942530bdc2bb647c~mv2.jpg/v1/fill/w_1857,h_644,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e8476f_66eed023f0b44694942530bdc2bb647c~mv2.jpg",
+  "isSchoolProject": false,
+  "hasDetails": true,
+  "details": [
+    {
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/e8476f_66eed023f0b44694942530bdc2bb647c~mv2.jpg/v1/fill/w_1857,h_644,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e8476f_66eed023f0b44694942530bdc2bb647c~mv2.jpg",
+      "alt": "Imagen promocional de la escuela"
+    },
+    { "type": "title", "content": "Descripción del Proyecto" },
+    {
+      "type": "paragraph",
+      "content": "Plataforma web SPA (React + TypeScript) integral para la Escuela OASIS – Surf & Español. El sistema abarca múltiples módulos y rutas (dashboard, staff, schedule) centralizando las operaciones comerciales, académicas y administrativas bajo una experiencia de usuario altamente reactiva."
+    },
+    {
+      "type": "image",
+      "src": "https://magenta-rare-python-472.mypinata.cloud/ipfs/bafkreihj4jwzohcczei3tmsv2n3dnjtb7ufvdvdlfay3b7zzezvmcojkke",
+      "alt": "Dashboard Principal del Sistema"
+    },
+    { "type": "title", "content": "Portal del Cliente y Experiencia de Reserva" },
+    {
+      "type": "list",
+      "items": [
+        "Área Privada Estudiantil: Dashboard dedicado donde el alumno puede supervisar sus reservas, revisar su historial de pagos, firmar cartas responsivas (Waivers) y descargar sus certificados.",
+        "Control de Clases: Interfaz interactiva para revisar clases vigentes de surf y español, visualizando detalles como instructor asignado, estado, horario y punto de encuentro.",
+        "Motor de Reservas y Paquetes: Sistema dinámico para configurar y adquirir paquetes (clases individuales, Surf & Español, hospedaje) con reglas de pagos anticipados y selección de complementos (fotos, coaching, equipo).",
+        "Checkout Integrado: Pasarela de pagos implementada con Stripe y PayPal, brindando confirmaciones de transacción automáticas y manejo de resultados (success/cancel)."
+      ]
+    },
+    { "type": "title", "content": "Módulos de Backoffice y Operaciones" },
+    {
+      "type": "list",
+      "items": [
+        "Gestión de Staff y Agendas: Herramientas administrativas avanzadas para controlar perfiles de instructores, administrar calendarios diarios/mensuales, y prevenir conflictos de horarios.",
+        "Centro Financiero: Módulos específicos para supervisión de ingresos, operaciones diarias de caja (CashBox), aplicación de reembolsos (Refunds) y gestión de matrículas.",
+        "Seguridad y Roles: API protegida por JSON Web Tokens (JWT) que administra de manera independiente las sesiones y permisos de clientes y administradores operativos."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "App Móvil venta de vinilos",
+  "slug": "app-vinilos",
+  "desc": "Aplicación nativa Android de comercio electrónico con arquitectura MVVM. Sincronización en tiempo real con API REST propia y autenticación Google Sign-In.",
+  "tags": ["Kotlin", "Jetpack Compose", "Retrofit", "Laravel API", "MVVM"],
+  "link": "#",
+  "repo": "#",
+  "showLink": false,
+  "showRepo": false,
+  "image": "https://magenta-rare-python-472.mypinata.cloud/ipfs/bafkreiabzzrnsbw42wupe3mp3upykacksdkgzifzhiumnflwikhigcu4ua",
+  "isSchoolProject": true,
+  "hasDetails": false
+}

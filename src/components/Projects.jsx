@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Github, ExternalLink, X, Code, GraduationCap } from 'lucide-react';
+import { Github, ExternalLink, X, Code, GraduationCap, ZoomIn, ArrowRight } from 'lucide-react';
 import RevealOnScroll from './RevealOnScroll';
 import FocusTrap from 'focus-trap-react';
 
 const Projects = ({ projects }) => {
     const [selectedProject, setSelectedProject] = useState(null);
+    const [expandedImage, setExpandedImage] = useState(null);
 
-    const closeModal = () => setSelectedProject(null);
+    const closeModal = () => {
+        setSelectedProject(null);
+        setExpandedImage(null);
+    };
 
     // Sync modal state with URL on mount
     useEffect(() => {
@@ -67,51 +71,64 @@ const Projects = ({ projects }) => {
                         <RevealOnScroll key={index} delay={index * 0.1}>
                             <div
                                 onClick={() => setSelectedProject(project)}
-                                className="group bg-zinc-900 border border-zinc-800 rounded-3xl hover:border-accent transition-all duration-300 flex flex-col relative overflow-hidden cursor-pointer h-full"
+                                className="group bg-zinc-900/40 border border-zinc-800/50 rounded-3xl hover:bg-zinc-900 hover:border-zinc-700 transition-all duration-500 flex flex-col relative overflow-hidden cursor-pointer h-full shadow-lg hover:shadow-2xl hover:shadow-accent/5"
                             >
                                 {/* Image Container */}
-                                <div className="relative h-64 overflow-hidden border-b border-zinc-800 group-hover:border-accent transition-colors">
+                                <div className="relative h-64 overflow-hidden border-b border-zinc-800/50">
                                     {project.image ? (
                                         <img
                                             src={project.image}
                                             alt={project.title}
                                             loading="lazy"
-                                            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
+                                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out opacity-90 group-hover:opacity-100"
                                         />
                                     ) : (
-                                        <div className="w-full h-full bg-zinc-800 flex items-center justify-center">
-                                            <Code size={48} className="text-zinc-600 group-hover:text-accent transition-colors duration-300" />
+                                        <div className="w-full h-full bg-zinc-900 flex items-center justify-center">
+                                            <Code size={48} className="text-zinc-700 group-hover:text-accent transition-colors duration-500" />
                                         </div>
                                     )}
-
-                                    {/* Overlay Icons - Visual hint only now */}
-                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                        <span className="px-6 py-3 bg-white text-black rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                            Explorar 
-                                        </span>
-                                    </div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60"></div>
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-8 flex-1 flex flex-col space-y-4">
+                                <div className="p-8 flex-1 flex flex-col space-y-5">
                                     <div className="flex justify-between items-start gap-4">
-                                        <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-colors uppercase tracking-wide">{project.title}</h3>
+                                        <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-colors tracking-tight leading-tight">{project.title}</h3>
                                         {project.isSchoolProject && (
-                                            <div className="relative group/icon">
-                                                <div className="text-zinc-600 group-hover:text-accent transition-colors">
-                                                    <GraduationCap size={20} />
-                                                </div>
+                                            <div className="text-zinc-500 group-hover:text-accent transition-colors flex-shrink-0 mt-1" title="Proyecto Escolar">
+                                                <GraduationCap size={20} />
                                             </div>
                                         )}
                                     </div>
                                     <p className="text-zinc-400 text-sm leading-relaxed line-clamp-3 font-light">{project.desc}</p>
 
-                                    <div className="flex flex-wrap gap-2 mt-auto pt-6">
-                                        {project.tags.map(tag => (
-                                            <span key={tag} className="text-xs font-bold px-3 py-1 bg-zinc-950 border border-zinc-800 rounded-full text-zinc-400 uppercase tracking-wider group-hover:border-zinc-700 transition-colors">
+                                    <div className="flex flex-wrap gap-2 pt-2">
+                                        {project.tags.slice(0, 3).map(tag => (
+                                            <span key={tag} className="text-[10px] font-bold px-3 py-1 bg-zinc-950/50 text-zinc-400 uppercase tracking-wider rounded-full border border-zinc-800/50 group-hover:border-zinc-700 transition-colors">
                                                 {tag}
                                             </span>
                                         ))}
+                                        {project.tags.length > 3 && (
+                                            <span className="text-[10px] font-bold px-3 py-1 text-zinc-500 flex items-center">
+                                                +{project.tags.length - 3}
+                                            </span>
+                                        )}
+                                    </div>
+
+                                    {/* Action Button inside Card */}
+                                    <div className="mt-auto pt-6 flex justify-between items-center border-t border-zinc-800/50">
+                                        <span className="text-sm font-semibold text-zinc-500 group-hover:text-white transition-colors flex items-center gap-2">
+                                            Vista Rápida <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                                        </span>
+                                        {project.hasDetails && (
+                                            <a
+                                                href={`${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}/project/${project.slug}`}
+                                                onClick={(e) => e.stopPropagation()}
+                                                className="px-4 py-2 bg-accent/10 hover:bg-accent text-accent hover:text-white rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all z-10 relative"
+                                            >
+                                                Ver Detalles
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -144,13 +161,23 @@ const Projects = ({ projects }) => {
 
                             <div className="grid md:grid-cols-2">
                                 {/* Left: Image */}
-                                <div className="h-64 md:h-auto relatives bg-zinc-950 flex items-center justify-center border-b md:border-b-0 md:border-r border-zinc-800 p-8">
+                                <div className="relative h-64 md:h-auto bg-zinc-950 flex items-center justify-center border-b md:border-b-0 md:border-r border-zinc-800 p-8 group/modalimage overflow-hidden">
                                     {selectedProject.image ? (
-                                        <img
-                                            src={selectedProject.image}
-                                            alt={selectedProject.title}
-                                            className="w-full h-auto max-h-[500px] object-contain rounded-lg shadow-lg"
-                                        />
+                                        <>
+                                            <img
+                                                src={selectedProject.image}
+                                                alt={selectedProject.title}
+                                                className="w-full h-auto max-h-[500px] object-contain rounded-lg shadow-lg cursor-pointer transition-transform duration-500 group-hover/modalimage:scale-[1.02]"
+                                                onClick={() => setExpandedImage(selectedProject.image)}
+                                            />
+                                            <button 
+                                                className="absolute inset-0 m-auto w-16 h-16 bg-black/50 hover:bg-accent text-white rounded-full flex items-center justify-center opacity-0 group-hover/modalimage:opacity-100 transition-all cursor-pointer transform scale-75 group-hover/modalimage:scale-100"
+                                                onClick={() => setExpandedImage(selectedProject.image)}
+                                                aria-label="Ampliar imagen"
+                                            >
+                                                <ZoomIn size={24} />
+                                            </button>
+                                        </>
                                     ) : (
                                         <Code size={64} className="text-zinc-700" aria-hidden="true" />
                                     )}
@@ -222,6 +249,31 @@ const Projects = ({ projects }) => {
                         </div>
                     </div>
                 </FocusTrap>,
+                document.body
+            )}
+
+            {/* Lightbox Modal */}
+            {expandedImage && createPortal(
+                <div 
+                    className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-zinc-950/95 backdrop-blur-sm animate-in fade-in duration-200 cursor-zoom-out"
+                    onClick={() => setExpandedImage(null)}
+                >
+                    <button
+                        className="absolute top-6 right-6 p-3 text-zinc-400 hover:text-white bg-black/50 hover:bg-black rounded-full transition-colors z-[210]"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setExpandedImage(null);
+                        }}
+                    >
+                        <X size={24} />
+                    </button>
+                    <img 
+                        src={expandedImage} 
+                        alt="Vista ampliada" 
+                        className="max-w-[95vw] max-h-[95vh] object-contain rounded-xl shadow-2xl animate-in zoom-in-95 duration-300"
+                        onClick={(e) => e.stopPropagation()}
+                    />
+                </div>,
                 document.body
             )}
         </section>
